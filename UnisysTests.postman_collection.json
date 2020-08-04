@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "e992b21b-4805-4576-8323-760a54892656",
+		"name": "Unisys Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://run.mocky.io/v3/d2f5546a-d9de-4b09-938d-b4f8cdf4f8b5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "09718483-7941-4e41-a86d-f627d8e8b8b5",
+						"exec": [
+							"pm.sendRequest(\"https://run.mocky.io/v3/d57ddcd2-c1cc-42d8-8fb6-48ef085c9b6c\", function(error, response){\r",
+							"    console.log(response.json)\r",
+							"}\r",
+							");\r",
+							"\r",
+							"pm.test(\"Response time is less than 300ms\", function(){\r",
+							"\r",
+							"pm.expect(pm.response.responseTime).to.bebelow(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body is correct\", function(){\r",
+							"\r",
+							"pm.response.to.have.body(\"Hello\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"token is validated\", function(){\r",
+							"\r",
+							"pm.response.to.have.header(\"token\");\r",
+							"pm.response.to.be.header(\"token\", \"abc123\");\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://run.mocky.io/v3/e1e26fb0-0ff0-49f9-9d3b-81545ed8e2a2",
+					"protocol": "https",
+					"host": [
+						"run",
+						"mocky",
+						"io"
+					],
+					"path": [
+						"v3",
+						"e1e26fb0-0ff0-49f9-9d3b-81545ed8e2a2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
